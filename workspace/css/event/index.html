@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .row {
+            height: 300px;
+        }
+
+        .row .col-md-3 {
+            height: 400px;
+        }
+
+        .row .col-md-3 img {
+            max-width: 100%;
+            height: 300px;
+        }
+        .row .col-md-4 {
+            max-width: 100%;
+            background-color: #F3F2F2;
+            height: 300px;
+        }
+        .row .col-md-4 table {
+            border-collapse: collapse;
+            display: block;
+        }
+        th {
+            font-size: 10px;
+            padding: 0;
+        }
+        td {
+            font-size: 10px;
+        }
+        td a {
+            font-size: 10px;
+            color: green;
+        }
+
+        .row .col-md-4 h2 {
+            display: block;
+        }
+
+        .row .col-md-4 button {
+            background-color: #1CA25D;
+            color: #fff;
+            width: 80px;
+            height: 40px;
+            border-radius: 5px;
+            border: 1px solid #6A6868;
+            position: relative;
+        }
+
+        .row .col-md-4 p {
+            position: absolute;
+            font-size: 10px;
+
+        }
+
+        .row .col-md-5 {
+            height: 300px;
+        }
+
+        .row .col-md-5 img {
+            max-width: 100%;
+            height: 300px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="bigdata.png" alt="" />
+            </div>
+            <div class="col-md-4">
+                <table>
+                    <thead>
+                        <th>开始时间：2018-08-22 13：00周三</th>
+                        <th>结束时间：2018-08-22 17：00周三</th>
+                    </thead>
+                    <tbody>
+                        <td>举办地点：
+                            <a>深圳市深圳市南山区桂庙路北瑞峰大厦瑞峰创业中心</a>
+                        </td>
+                        <td>主办方：
+                            <a>光环</a>
+                        </td>
+                        <td>报名截止：85天16时08分04秒</td>
+                    </tbody>
+                    <tfoot>
+                        <button>立即报名</button>
+                        <p>活动即将开始</p>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="col-md-5">
+                <img src="staticimage.png" alt="" />
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

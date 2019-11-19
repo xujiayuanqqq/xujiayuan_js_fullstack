@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>debounce</title>
+    <style>
+        #container {
+            width: 100%;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            color: #fff;
+            background-color: #444;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <button id="button">点击取消debounce</button>
+    <script>
+        var count = 1;
+        var container = document.getElementById('container');
+
+        function debounce(func, wait, immediate) {
+            var timeout, result;
+            var debounced = function () {
+                // 在debounce函数中， this会指向 Window 对象
+                var context = this; // this指向正确对象 this指向
+                var args = arguments; //在debounce函数内部将arguments指向正确对象 event对象
+                
+
+                // getUserAction 函数可能是有返回值的，所以我们也要返回函数的执行结果，但是当 immediate 为 false 的时候，因为使用了 setTimeout ，我们将 func.apply(context, args) 的返回值赋给变量，最后再 return 的时候，值将会一直是 undefined，所以我们只在 immediate 为 true 的时候返回函数的执行结果。
+                if (timeout) clearTimeout(timeout);
+                if (immediate) {
+                    //如果已经执行过，不再执行
+                    var callNow = !timeout;
+                    timeout = setTimeout(function () {
+                        timeout = null;
+                        // func.apply(context, args) //执行
+                    }, wait)
+                    if (callNow) result = func.apply(context, args)
+                } else {
+                    timeout = setTimeout(function() {
+                        func.apply(context, args)
+                    }, wait);
+                }
+                return result;
+            };
+            debounced.cancel = function() {
+                clearTimeout(timeout);
+                timeout = null;
+            };
+            return debounced;
+        }
+        //js在事件处理函数中会提供事件对象event
+        function getUserAction(e) {
+            // console.log(e); //不使用debounce函数，会打印出MouseEvent对象， 在使用debounce函数的情况下会打印出 undefined，在debounce函数内部将arguments运行，可以打印出MouseEvent对象
+            container.innerHTML = count++;
+        };
+        var setUseAction = debounce(getUserAction, 1000, true);
+        container.onmousemove = setUseAction;
+        document.getElementById("button").addEventListener('click', function() {
+            setUseAction.cancel();
+        })
+        // container.onmousemove = debounce(getUserAction, 1000);
+    </script>
+</body>
+
+</html>

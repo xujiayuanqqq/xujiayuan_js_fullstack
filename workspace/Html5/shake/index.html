@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>摇一摇</title>
+    <script>
+        // 所有css之前，我们先来决定htmlfont-size应该为 1rem=设备宽度/10
+        // 适配问题 不同的手机1rem 单位是 宽度10分之1
+        // 1rem = html fontsize
+        (function (w) {
+            // window 是js 全局 dom document 只是其中一部分
+            // 导航location.href　  navigator lbs 经纬度
+            // 陀螺仪 储存localstorage
+            let s = w.document;
+            // 找到html元素
+            let r = s.documentElement;
+            // 宽度的十分之一
+            let colWidth = r.clientWidth / 10; /*面试常考*/
+            console.log(colWidth);
+            r.style.fontSize = colWidth + 'px';
+        })(window)
+    </script>
+    <script>
+        if (window.DeviceMotionEvent) {
+            window.addEventListener('devicemotion', deviceMotionHandler, false);
+        }
+        //获取加速度信息
+        //通过监听上一步获取到的x, y, z 值在一定时间范围内的变化率，进行设备是否有进行晃动的判断。
+        //而为了防止正常移动的误判，需要给该变化率设置一个合适的临界值。
+        var SHAKE_THRESHOLD = 4000;
+        var last_update = 0;
+        var x, y, z, last_x = 0, last_y = 0, last_z = 0;
+        function deviceMotionHandler(eventData) {
+            var acceleration = eventData.accelerationIncludingGravity;
+            var curTime = new Date().getTime();
+            if ((curTime - last_update) > 10) {
+                var diffTime = curTime - last_update;
+                last_update = curTime;
+                x = acceleration.x;
+                y = acceleration.y;
+                z = acceleration.z;
+                var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+                if (speed > SHAKE_THRESHOLD) {
+                    alert("你中奖啦！");  // Do something
+                }
+                last_x = x;
+                last_y = y;
+                last_z = z;
+            }
+        }
+    </script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;            
+        }
+        body {
+            background: #000;
+            overflow: hidden;
+            
+        }
+        .container {
+            height: 100%;
+            overflow: hidden;
+        }
+        .hand-shake {
+            width: 100%;
+            height: 50%;
+            margin-top: 2rem;
+        }
+        .hand-shake img {
+            display: block;
+            margin: 0 auto;
+            -webkit-animation: 5s infinite;
+            animation: shake 5s linear infinite alternate;
+        }
+        @keyframes shake {
+            0% {
+                transform: rotateZ(0);
+            }
+            45% {
+                transform: rotateZ(30deg);
+            }
+        }
+        .loding {
+            width: 100%;
+            height: 3rem;
+        }
+        .loding img {
+            width: 3rem;
+            height: 3rem;
+            display: block;
+            display: none;
+            margin: 0 auto;
+            animation: ring .5s linear infinite;
+        }
+        @keyframes ring {
+            0% {
+                transform: rotateZ(0);
+            }
+            100% {
+                transform: rotateZ(360deg);
+            }
+        }
+        .tip {
+            width: 8rem;
+            height: 2rem;
+            background: #3E4142;
+            border: .013333rem solid #959EA1;
+            border-radius: .5rem;
+            display: block;
+            margin: 0 auto;
+            position: relative;
+        }
+       .tip img {
+            position: absolute;
+            width: 1.5rem;
+            height: 1.5rem;
+            border: .013333rem solid #959EA1;
+            margin-top: 0.25rem;
+            margin-left: 0.25rem;
+        }
+        .tip h1 {
+            position: absolute;
+            font-size: .5rem;
+            color: #fff;
+            text-align: center;
+            top: .2rem;
+            left: 2rem;
+        }
+        .tip span {
+            position: absolute;
+            font-size: .5rem;
+            color: #fff;
+            text-align: center;
+            top: 1rem;
+            left: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hand-shake">
+            <img src="hand.png" alt="摇一摇" />
+        </div>
+        <div class="loding">
+            <img src="spinner.png" alt="加载" />
+        </div>
+        <div class="tip">
+            <img src="dino.png" alt="">
+            <h1>摇晃结果</h1>
+            <span>恭喜你摇到了本大帅哥</span>
+        </div>
+    </div>
+</body>
+</html>

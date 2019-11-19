@@ -1,0 +1,128 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form action="">
+            <div class="select">
+                <h1>选择颜色：</h1>
+                <option value="红色" class="red"></option>
+                <option value="蓝色" class="blue"></option>
+                <h2>输入购买数量：</h2>
+                <input type="text" />
+            </div>
+            <div class="display-color">
+                <h1>您选择了颜色:</h1>
+                <output class="color" for=""></output>
+            </div>
+            <div class="display-number">
+                <h1>您输入了数量:</h1>
+            </div>
+            <button></button>
+        </form>
+    </div>
+    <script>
+
+    </script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="buy">
+        输入购买数量
+        <input onchange="number()" class="number" type="number">
+    </div>
+    <div class="color">
+        选择颜色
+        <select class="choose" onchange="change()">
+            <option value="red">red</option>
+            <option value="blue">blue</option>
+        </select>
+    </div>
+
+
+
+    <div>
+        你选择的颜色为：
+        <span class="choosecolor"></span>
+    </div>
+    <div>
+        您输入的数量为：
+        <span class="nnnnn"></span>
+    </div>
+
+    <button id="btn" onclick="put()">放入购物车</NOtton>
+
+    <script>
+        window.onload = function () {
+            var color = document.querySelector('.choose').value;
+            // console.log(color)
+            var choosecolor = document.querySelector('.choosecolor');
+            // console.log(choosecolor)
+            choosecolor.innerHTML = color;
+        }
+
+        function change() {
+            var color = document.querySelector('.choose').value;
+            // console.log(color)
+            var choosecolor = document.querySelector('.choosecolor');
+            // console.log(choosecolor)
+            choosecolor.innerHTML = color;
+        }
+
+        function number() {
+            var color = document.querySelector('.choose').value;
+            var num = document.querySelector('.number').value;
+            var nnnnn = document.querySelector('.nnnnn');
+
+            // console.log(btn)
+            nnnnn.innerHTML = num
+
+            var phone = {
+                blue: 6,
+                red: 4
+            }
+
+            if(color === "red"){
+                if (num > phone.red) {
+                document.querySelector("#btn").disabled = "disabled"
+            } else {
+                document.querySelector("#btn").disabled = ""
+            }
+            }else if(color === "blue"){
+                if (num > phone.blue) {
+                    document.querySelector("#btn").disabled = "disabled"
+                } else {
+                    document.querySelector("#btn").disabled = ""
+                }
+            }
+
+        }
+        function put() {
+
+        }
+    </script>
+</body>
+
+</html>

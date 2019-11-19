@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+.swiper-container {
+    /* vw,vh 相对单位
+        单屏应用
+    */
+    width: 100vw;
+    height: 100vh;
+}
+
+.slide-1 {
+    background: url("https://img.aotu.io/xiaocezi/1.jpg")50% 0 no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+}
+
+.slide-2 {
+    background: url("https://img.aotu.io/xiaocezi/2.jpg")50% 0 no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+}
+
+.slide-3 {
+    background: url("https://img.aotu.io/xiaocezi/3.jpg")50% 0 no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+}

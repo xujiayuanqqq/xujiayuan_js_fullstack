@@ -1,0 +1,15 @@
+/* 
+    author lrc
+    date 2018 4 25
+*/
+.weui-badge{
+    display: inline-block;
+    padding: 0em 0.5em;
+    min-width: 8px;
+    border-radius: 50%;
+    background: #f43530;
+    color: #ffffff;
+    text-align: center;
+    font-style: 12px;
+    vertical-align: middle;
+} 

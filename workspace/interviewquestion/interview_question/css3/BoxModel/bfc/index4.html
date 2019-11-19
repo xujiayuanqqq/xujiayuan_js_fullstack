@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>防止字体环绕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .left {
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+        p {
+            background-color: green;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="left"></div>
+    <p>Hello Hello Hello Hello Hello Hello Hello Hello Hello
+        Hello Hello Hello HelloHelloHelloHello HelloHello HelloHello Hello
+    Hello Hello Hello HelloHelloHello HelloHelloHello Hello HelloHelloHello Hello Hello
+    Hello Hello Hello Hello Hello HelloHello HelloHello Hello HelloHello HelloHello
+    </p>
+</body>
+</html>

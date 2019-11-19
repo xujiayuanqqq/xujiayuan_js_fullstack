@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表格布局</title>
+    <style>
+        html * {
+            margin: 0;
+            padding: 0;
+        }
+        .left-center-right {
+            min-height: 100px;
+            width: 100%;
+            display: grid;
+            grid-template-rows: 100px;
+            grid-template-columns: 300px auto 300px;
+        }
+        .left-center-right>div {
+        }
+        .left {
+            width: 300px;
+            background: red;
+        }
+        .center {
+            background: yellow;
+        }
+        .right {
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>网格布局</h1>
+    <div class="left-center-right">
+        <div class="left"></div>
+        <div class="center">
+            <h2>网格布局解决方案</h2>
+            1.这是三栏布局的网格解决方案：
+            2.这是三栏布局的网格解决方案：       
+        </div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>

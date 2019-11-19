@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BoxModel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box1 {
+            /* width: 100px; */
+            height: 100px;
+            padding: 10px;
+            border: 10px solid #000000;
+            background: #ffff00;
+            /* box-sizing: content-box; 不写这句的话，也是默认为标准盒模型 */
+        }
+        #box2 {
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            border: 10px solid #0000ff;
+            background: #ff0000;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1" style="width: 100px;">123</div>
+    <div id="box2">456</div>
+    <script>
+        var box1 = document.getElementById('box1');
+        console.log(box1.style.width);
+        var box1 = document.getElementById('box1');
+        console.log(window.getComputedStyle(box1).width);
+        var box2 = document.getElementById('box2');
+        console.log(box2.getBoundingClientRect().width);
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function parseUrl(url) {
+        // 生成一个a标签，用a标签的属性和正则获取各个属性
+            var a = document.createElement('a');
+            a.href = url;
+            console.log(window.location, 'location')
+            // debugger
+            return {
+                source: url,
+                protocol: a.protocol.replace(':',''),
+                host: a.hostname,
+                port: a.port,
+                query: a.search,
+                params: (() => {
+                    var ret = {}, querys = [];
+                    var searchQuery = a.search.replace(/^\?/,'').split('&');
+                    for(var i = 0; i < searchQuery.length; i++) {
+                        if(searchQuery[i]) {
+                            querys = searchQuery[i].split('=');
+                            ret[querys[0]] = querys[1];
+                        }
+                    }
+                    return ret;
+                })(),
+                file: (a.pathname.match(/\/([^\/?#]+)$/i) || [,''])[1],
+                hash: a.hash.replace('#',''),
+                path: a.pathname.replace(/^([^\/])/,'/$1'),
+                relative: (a.href.match(/tps?:\/\/[^\/]+(.+)/) || [,''])[1],
+                segments: a.pathname.replace(/^\//,'').split('/')
+            };
+        }
+        // var myUrl = parseUrl("http://www.xiyanghui.com/product/list?id=123456&sort=discount#title");
+        console.log(parseUrl("http://www.xiyanghui.com/product/list?id=123456&sort=discount#title"));
+    </script>
+</body>
+</html>

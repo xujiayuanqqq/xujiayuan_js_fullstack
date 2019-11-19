@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = '112254,33445,56699';
+        var s = str.split(',');
+        document.write(str.split("")+"<br />");
+        document.write(str.split(" ")+"<br />");
+        document.write(str.split("",3)+"<br />");
+        console.log(s.length);
+        console.log(s[0]);
+        for(var i = 0;i < s.length; i++) {
+            console.log(s[i]);
+        }
+
+        var arr = [4,5,34,3453,3453,33,"啦啦啦"];
+        var arr2 = arr.join("");
+        console.log(arr2);
+        document.write(arr.reverse()+"<br />");
+        document.write(arr.sort()+"<br />");
+        console.log(typeof(arr2));
+        console.log(typeof(arr))
+    </script>
+</body>
+</html>

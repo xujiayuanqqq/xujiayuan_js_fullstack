@@ -1,0 +1,23 @@
+<script>
+import wepy from 'wepy';
+export default class BottomLoadMore extends wepy.component {
+    props = {
+        show: {
+            type: Boolean,
+            default: true
+        },
+        message: {
+            default: '正在加载中'
+        }
+    }
+}
+</script>
+<template>
+    <view class="loadMoreGif" wx:if="{{show}}">
+        <image src="../../images/loadding.gif"></image>
+        <text>{{message}}</text>
+    </view>
+</template>
+<style lang="less">
+
+</style>

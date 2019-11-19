@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>throttle</title>
+    <style>
+        #container {
+            width: 100%;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            color: #fff;
+            background-color: #444;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <button id="button">点击取消</button>
+    <script>
+        var count = 1;
+        var container = document.getElementById('container');
+    
+        function throttle(func, wait, options) {
+            var context, args, timeout, result;
+            var previous = 0;
+            if (!options) options = {};
+    
+            var later = function() {
+                previous = options.leading === false ? 0 : new Date().getTime();
+                timeout = null;
+                func.apply(context, args);
+                if (!timeout) context = args = null;
+            };
+    
+            var throttled = function() {
+                var now = new Date().getTime();
+                if (!previous && options.leading === false) previous = now;
+                //下次触发func剩余的时间
+                var remaining = wait - (now - previous);
+                context = this;
+                args = arguments;
+                // 如果没有剩余的时间了或者你改了系统时间
+                if (remaining <= 0 || remaining > wait) {
+                    if (timeout) {
+                        clearTimeout(timeout);
+                        timeout = null;
+                    }
+                    previous = now;
+                    func.apply(context, args);
+                    if (!timeout) context = args = null;                
+                } else if (!timeout && options.trailing !== false) {
+                    timeout = setTimeout(later, remaining);
+                }
+            };
+            return throttled;
+            // return function() {
+            //     // var now = +new Date();
+            //     context = this;
+            //     args = arguments;
+            //     if (!timeout) {
+            //         timeout = setTimeout(() => {
+            //             timeout = null;
+            //             func.apply(context, args)
+            //         }, wait)
+            //     }
+            //     // if (now - previous > wait) {
+            //     //     func.apply(context, args);
+            //     //     previous = now;
+            //     // }
+            // }
+        }
+        function getUserAction() {
+            container.innerHTML = count++;        
+        }
+    
+        // var setUserAction = throttle(getUserAction, 3000);
+    
+        // 鼠标移出后再触发
+        // var setUserAction = throttle(getUserAction, 3000, {
+            // leading:false
+        // });
+    
+        // 鼠标进入后马上触发
+        var setUserAction = throttle(getUserAction, 3000, {
+            trailing:false
+        }); 
+        container.onmousemove = setUserAction;
+
+        document.getElementById('button').addEventListener('click', function() {
+            setUserAction.cancel();
+        })  
+    </script>
+</body>
+</html>

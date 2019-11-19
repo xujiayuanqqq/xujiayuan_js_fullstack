@@ -1,0 +1,15 @@
+image {
+    width: 250rpx;
+    height: 250rpx;
+  }
+  .money {
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+  
+  }
+  .mymoney {
+    font-size: 30rpx;
+    /* font-weight: bold; */
+  }
+  

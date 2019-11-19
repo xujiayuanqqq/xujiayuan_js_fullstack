@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var url="http://www.xiyanghui.com/product/list?id=123456&sort=discount#title";
+        function parseQueryString(url){
+            var str=url.split("?")[1];
+            var urlStr = url.split("?")[0];
+            var protocol = urlStr.split(':')[0];
+            var end = urlStr.split(':')[1].split('//')[1].indexOf('/');
+            var host = urlStr.split(':')[1].split('//')[1].substring(0, end);
+            var path = urlStr.split(':')[1].split('//')[1].substring(end, urlStr.split(':')[1].split('//')[1].length-1);
+            var hashIndex = url.indexOf('#');
+            var hash = '';
+            if (hashIndex) {
+                hash = url.substring(hashIndex + 1, url.length);
+            }
+            var items=str.split("&");
+            var result={};
+            var arr=[];
+
+            for(var i=0; i<items.length; i++){
+                    arr=items[i].split('=');
+                    result[arr[0]]=arr[1];
+            }
+
+            return {
+                protocol: protocol,
+                host: host,
+                path: path,
+                query: result,
+                hash: hash
+            };
+        }
+
+        var obj=parseQueryString(url);
+        console.log(obj);
+    </script>
+</body>
+</html>

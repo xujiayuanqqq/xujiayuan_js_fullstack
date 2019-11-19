@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>不被浮动元素覆盖-两栏布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .column:nth-of-type(1) {
+            float: left;
+            width: 200px;
+            height: 300px;
+            margin-right: 10px;
+            background-color: red;
+            text-align: center;
+        }
+        .column:nth-of-type(2) {
+            overflow: hidden; /*创建BFC*/
+            height: 300px;
+            background-color: purple;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="column">左边固定宽度</div>
+    <div class="column">右边自适应</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>flex布局</title>
+    <style>
+        html * {
+            margin: 0;
+            padding: 0;
+        }
+        .left-center-right {
+            min-height: 100px;
+            display: flex;
+        }
+        .left {
+            width: 300px;
+            background: red;
+        }
+        .center {
+            flex: 1;
+            background: yellow;
+        }
+        .right {
+            width: 300px;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>三栏布局</h1>
+    <div class="left-center-right">
+        <div class="left"></div>
+        <div class="center">
+            <h2>flexbox解决方案</h2>
+            1.这是三栏式布局的flex解决方案：
+            2.这是三栏式布局的flex解决方案：  
+        </div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>

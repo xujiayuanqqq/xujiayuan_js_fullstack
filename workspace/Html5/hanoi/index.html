@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        var hanoi = function (disc, src, aux, dst) {
+            console.log(disc);//(3 2 1 0 0 1 0 0 2 1 0 0 1 0 0)
+            if (disc > 0) {
+                // console.log(disc);(3 2 1 1 2 1 1)
+                hanoi(disc - 1, src, dst, aux);
+                // console.log(disc);(1 2 1 3 1 2 1)
+                document.writeln('Move disc' + disc + 'from' + src + 'to' + dst);
+                // console.log(disc);//(1 2 1 3 1 2 1)
+                hanoi(disc - 1, aux, src, dst);
+                // console.log(disc);(1 1 2 1 1 2 3)
+            }
+            // console.log(disc);//(0 0 1 0 0 1 2 0 0 1 0 0 1 2 3)
+        };
+        hanoi(3, 'Src', 'Aux', 'Dst');
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

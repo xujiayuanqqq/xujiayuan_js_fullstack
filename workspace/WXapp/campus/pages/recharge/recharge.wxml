@@ -1,0 +1,16 @@
+<view class="mian">
+    <view class="weui-cells">
+        <view class="weui-cels weui-btn">
+            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">默认寝室</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access">研1592</view>
+            </navigator>
+        </view>
+    </view>
+    <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" wx:for="{{items}}">
+            <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+        </label>
+    </radio-group>
+    <button>确定</button>
+</view>

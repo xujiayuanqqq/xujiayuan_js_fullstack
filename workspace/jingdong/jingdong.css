@@ -1,0 +1,243 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+body {
+    -webkit-font-smoothing: antialiased;
+    background-color: #fff;
+    font: 12px/1.5 Microsoft YaHei,tahoma,arial,Hiragino Sans GB,\\5b8b\4f53,sans-serif;
+    color: #666;
+}
+div {
+    display: block;
+}
+#header .w {
+    position: relative;
+    z-index: 11;
+    height: 140px;
+}
+.w {
+    margin: auto;
+    width: 990px;
+}
+#logo {
+    z-index: 2;
+    left: 0;
+    top: -31px;
+    width: 190px;
+    height: 170px;
+    -webkit-box-shadow: 0 -12px 10px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 -12px 10px rgba(0, 0, 0, .2);
+    box-shadow: 0 -12px 10px rgba(0, 0, 0, .2);
+    background-color: #fff;
+    border-bottom: 1px solid #ededed;
+
+}
+.logo_tit {
+    width: 100%;
+    height: 100%;
+}
+h1 {
+    display: block;
+    font-size: 2em;
+    -webkit-margin-before: 0.67em;
+    -webkit-margin-after: 0.67em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+#logo, .logo_tit {
+    position: absolute;
+}
+a {
+    color: #666;
+    text-decoration: none;
+}
+h2 {
+    display: block;
+    font-size: 1.5em;
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+.logo_extend {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.search-m {
+    position: relative;
+    z-index: 1;
+    height: 60px; 
+}
+.search-m .search_logo {
+    display: none;
+}
+a {
+    color: #666;
+    text-decoration: none;
+}
+#shelper {  
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    left: 270px;
+    top: 59px;
+    width: 398px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    -webkit-box-shadow: 1px 2px 1px rgba(0,0,0,.2);
+    -moz-box-shadow: 1px 2px 1px rgba(0,0,0,.2);
+    box-shadow: 1px 2px 1px rgba(0,0,0,.2);
+}
+.search-m .form {
+    position: absolute;
+    left: 270px;
+    top: 25px;
+    width: 400px;
+    height: 35px;
+}
+.search-m .text {
+    left: 0;
+    padding: 4px 44px 4px 4px;
+    width: 300px;
+    height: 25px;
+    border: 1px solid transparent;
+    line-height: 25px;
+    font-size: 14px;
+    color: #989898;
+}
+.search-m .button, .search-m .text {
+    position: absolute;
+    top: 0;
+    outline: none;
+}
+button, input {
+    font-family: Microsoft YaHei,tahoma,arial,Hiragino Sans GB,\\5b8b\4f53,sans-serif;
+}
+.photo-search-btn {
+    position: absolute;
+    right: 65px;
+    top: 10px;
+    width: 19px;
+    height: 15px;
+    overflow: hidden; 
+}
+form {
+    display: block;
+}
+.search-m .button {
+    -moz-border-radius: 0;
+    border-radius: 0;
+    right: 0;
+    width: 50px;
+    height: 35px;
+    line-height: 35px;
+    border: none;
+    background-color: #f10215;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+}
+.search-m .button, .search-m .text {
+    position: absolute;
+    top: 0;
+    outline: none;
+}
+button {
+    cursor: pointer;
+}
+.iconfont {
+    font-family: iconfont;
+    font-style: normal;
+    -webkit-text-stroke-width: .2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+#settleup .cw-icon {
+    width: 188px;
+    height: 33px;
+    background-color: #fff;
+    text-align: center;
+    line-height: 33px;
+}
+.cw-icon {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    float: left;
+    border: 1px solid #e3e4e5;
+}
+.ci-left, .ci-right, .dd-spacer {
+    display: none!important;
+}
+em, i {
+    font-style: normal;
+}
+#settleup .ci-count {
+    position: absolute;
+    top: 5px;
+    left: 140px;
+    right: auto;
+    display: inline-block;
+    padding: 1px;
+    font-size: 12px;
+    line-height: 12px;
+    color: #fff;
+    background-color: #f10215;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    min-width: 12px;
+    text-align: center;
+}
+#settleup .cw-icon .iconfont {
+    margin-right: 3px;
+    font-size: 16px;
+    color: #f10214;
+}
+.iconfont {
+    font-family: iconfont;
+    font-style: normal;
+    -webkit-text-stroke-width: .2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+#settleup .cw-icon a {
+    color: #f10214;
+}
+a {
+    color: #666666;
+    text-decoration: none;
+}
+.cart_pop {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    background: #fff;
+}
+.cart_empty {
+    height: 49px;
+    margin: auto;
+    padding: 10px 0;
+    text-align: center;
+    line-height: 49px;
+    overflow: hidden;
+    color: #999;
+}
+.cart_empty_img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 56px;
+    height: 49px;
+    background-image: url(//img11.360buyimg.com/uba/jfs/t3571/299/131233948/1117/a1196554/58004d6dN2927f0f7.png);
+}
