@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .radio-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        height: 90px;
+        border-bottom: 1px solid ;
+    }
+    .radio-check {
+        position: relative;
+        height: 100%;
+        width: 250px;
+        text-align: center;
+    }
+    .radio-check > input {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    .radio-check > label {
+        /* position: absolute; */
+        width: 100%;
+        height: 100%;
+        top: 0px;
+    }
+    .radio-check > label:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+    }
+    .radio-check > label:after {
+        content: '';
+        position: absolute;
+        left: -30px;
+        top: 0px;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+    }
+    .radio-check input[type='radio']:checked + label:before {
+        border-color: #0090E2;
+    }
+    .radio-check input[type='radio']:checked + label:after {
+        color: #0090E2;
+    }
+    </style>
+</head>
+<body>
+    <div class="radio-list">
+        <div class="radio-check">
+            <input type="radio" name="test" id="test1" hidden/>
+            <label for="test1">待确认</label>
+        </div>
+        <div class="radio-check">
+            <input type="radio" name="test" id="test2" hidden/>
+            <label for="test2">待跟进</label>
+        </div>
+        <div class="radio-check">
+            <input type="radio" name="test" id="test3" hidden/>
+            <label for="test3">历史名单</label>
+        </div>
+    </div>
+</body>
+</html>
