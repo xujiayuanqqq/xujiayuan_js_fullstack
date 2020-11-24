@@ -1,8 +1,0 @@
-<view class="container">
-    <view class="bd-area"> 
-        <input type="text" bindinput="nameInput" class="name" placeholder="姓名"/>
-        <input type="number" bindinput="numberInput" class="phoneNumber" placeholder="电话号码"/>
-        <input type="text" bindinput="addressInput" class="detailAddress" placeholder="详细地址"/>
-    </view>
-    <button class="save" bindtap="saveInformation">保存</button>
-</view>

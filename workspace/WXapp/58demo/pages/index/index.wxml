@@ -1,8 +1,0 @@
-<!--index.wxml-->
-<view class="container">
-    <input type="number" placeholder="请输入手机号" />
-    <button>下一步</button>
-    <view>点击"下一步"，即同意
-        <navigator>《58到家用户协议》</navigator>
-    </view>
-</view>
