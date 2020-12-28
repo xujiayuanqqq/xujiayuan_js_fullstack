@@ -1,7 +1,8 @@
 <template>
   <div>
     <h3>weclome vue3</h3>
-    <button v-for="(item, index) in books" :key="index" @click="selectBookFun(index)">{{index}}:{{item}}</button>
+    <div>{{ book }}</div>
+    <button v-highlight="'yellow'" v-for="(item, index) in books" :key="index" @click="selectBookFun(index)">{{index}}:{{item}}</button>
     <div v-if="selectBook">你选择了《{{ selectBook }}》这本书</div>
     <div>
       <button @click="overAction">订购</button>
@@ -53,6 +54,11 @@ export default defineComponent({
     modal,
     // AsyncShow,
     BookShow
+  },
+  inject: {
+    book: {
+      from: 'guide'
+    }
   },
   setup() {
     // const books = ref(['红楼梦', '西游记', '三国演义', '水浒传']);
