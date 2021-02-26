@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.0.2/vue.global.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+</body>
+<script>
+  const app = Vue.createApp({
+    data() {
+      return {
+        name: 'some msg',
+        pay: () => {
+          console.log('pay 60$')
+        }
+      }
+    },
+    template: `
+      <div>vue3</div>
+      <Son :name="name"/>
+      <Book :pay="pay"/>
+    `
+  })
+  app.component('Son', {
+    props: {
+      name: String
+    },
+    template: `<div>{{name}}</div>`
+  })
+  app.component('Book', {
+    props: ['pay'],
+    methods: {
+      handleClick() {
+        console.log('are you sure to order this book ?')
+        this.pay()
+      }
+    },
+    template: `<div @click="this.handleClick">order a book</div>`
+  })
+  const vm = app.mount('#app')
+</script>
+</html>
